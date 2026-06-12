@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alya Dhamierea | Portfolio</title>
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome untuk Icon Media Sosial & Tools -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- TAILWIND CSS CDN + CONFIG CONTEXT -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        #mobile-menu.open { display: flex; }
+        
+        /* Style untuk animasi smooth active state di navbar */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #ec4899; /* pink-500 */
+            transition: width 0.3s ease;
+        }
+        .nav-link.active {
+            color: #ec4899 !important;
+        }
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Utility untuk transisi Carousel Gallery */
+        .gallery-item {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="w-full min-h-screen bg-neutral-900 text-zinc-100 font-sans selection:bg-pink-500 selection:text-neutral-900 overflow-x-hidden pt-20">
+
+    <!-- =========================================================================
+        0. INTERACTIVE NAVIGATION BAR (NAVBAR)
+       ========================================================================= -->
+    <nav class="fixed top-0 left-0 w-full h-20 bg-neutral-900/90 backdrop-blur-md border-b border-zinc-800/60 z-50">
+        <div class="max-w-7xl mx-auto h-full px-6 md:px-16 flex items-center justify-between">
+            <!-- Brand Identity Logo - alyadrea. -->
+            <a href="#home" class="text-zinc-100 text-xl font-bold tracking-tight hover:text-pink-500 transition-colors">
+                alyadrea<span class="text-pink-500">.</span>
+            </a>
+            
+            <!-- Desktop Navigation Menu Links with Active State Line Indicator -->
+            <div id="desktop-nav" class="hidden md:flex items-center space-x-8 text-sm font-medium text-zinc-400">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experiences" class="nav-link">Journey</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <!-- CTA Let's Chat Button -->
+            <div class="hidden md:block">
+                <a href="#contact" class="px-5 py-2.5 bg-zinc-800 hover:bg-pink-500 hover:text-neutral-900 text-zinc-100 text-xs font-semibold rounded-full border border-zinc-700/60 transition-all duration-300">
+                    Let's Chat
+                </a>
+            </div>
+
+            <!-- Mobile Burger Menu Toggle Button -->
+            <button id="menu-toggle" class="block md:hidden text-zinc-400 hover:text-pink-500 focus:outline-none" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Dropdown Menu Mobile Panel -->
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-neutral-950/95 border-b border-zinc-800 flex-col px-6 py-6 space-y-4 text-base font-medium z-40">
+            <a href="#home" class="hover:text-pink-500 transition-colors py-1">Home</a>
+            <a href="#about" class="hover:text-pink-500 transition-colors py-1">About</a>
+            <a href="#skills" class="hover:text-pink-500 transition-colors py-1">Skills</a>
+            <a href="#experiences" class="hover:text-pink-500 transition-colors py-1">Journey</a>
+            <a href="#projects" class="hover:text-pink-500 transition-colors py-1">Projects</a>
+            <a href="#contact" class="hover:text-pink-500 transition-colors py-1">Contact</a>
+        </div>
+    </nav>
+
+    <!-- =========================================================================
+        1. HERO SECTION 
+       ========================================================================= -->
+    <section id="home" class="relative w-full min-h-[729px] bg-neutral-900 flex items-center overflow-hidden">
+        <div class="hidden lg:block absolute w-[600px] h-[600px] right-[5%] top-[64px] opacity-5 pointer-events-none">
+            <div class="w-[600px] h-[600px] absolute rounded-2xl border-[0.80px] border-zinc-100"></div>
+            <div class="w-96 h-96 absolute left-[80px] top-[80px] rounded-2xl border-[0.80px] border-pink-500"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto w-full px-6 md:px-16 py-16 flex flex-col lg:flex-row items-center justify-between gap-12 z-10">
+            <div class="flex-1 max-w-[672px] flex flex-col justify-start items-start space-y-6">
+                <div class="text-pink-500 text-xs font-semibold uppercase tracking-wider">Available for Projects</div>
+                <h1 class="text-zinc-100 text-4xl md:text-6xl font-bold leading-tight md:leading-[90px]">
+                    Hi, I'm <span class="text-pink-500">Alya Dhamierea</span>.
+                </h1>
+                <h2 class="text-zinc-100 text-2xl md:text-4xl font-semibold leading-snug md:leading-[60px]">
+                    Crafting Seamless Digital Solutions as a Product Manager & Developer.
+                </h2>
+                <p class="max-w-[576px] text-zinc-400 text-base font-normal leading-7">
+                    IT student at Brawijaya University and national informatics medalist, specializing in Product Management to build structured, user-centric digital solutions.
+                </p>
+                <div>
+                    <a href="#projects" class="inline-flex items-center gap-2 px-8 py-4 bg-pink-500 text-neutral-900 font-semibold text-sm rounded-full shadow-lg shadow-pink-500/20 hover:bg-pink-600 hover:scale-105 transition-all duration-300">
+                        View My Work <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative w-80 h-80 flex-shrink-0 my-8 lg:my-0">
+                <div class="absolute w-80 h-80 -left-3 -top-3 rounded-full border-[0.80px] border-pink-500/20 animate-pulse"></div>
+                <div class="absolute w-96 h-96 -left-8 -top-8 rounded-full border-[0.80px] border-pink-500/10"></div>
+                
+                <div class="absolute w-80 h-80 left-0 top-0 rounded-full border-2 border-pink-500/40 overflow-hidden bg-zinc-800 flex justify-center items-center">
+                    <img class="w-full h-full object-cover object-center" src="assets/foto-alya.jpeg.jpeg" alt="Alya Dhamierea Profile" onerror="this.src='https://placehold.co/317x453'"/>
+                </div>
+                
+                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 px-4 py-2 bg-zinc-900 rounded-full border border-zinc-800 flex items-center gap-2 shadow-xl">
+                    <div class="w-2 h-2 bg-pink-500 rounded-full animate-ping"></div>
+                    <div class="text-zinc-100 text-xs font-medium tracking-wide">Open to Work</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+        2. ABOUT ME SECTION (INTERACTIVE GALLERY)
+       ========================================================================= -->
+    <section id="about" class="w-full py-24 bg-neutral-900">
+        <div class="max-w-7xl mx-auto w-full px-6 md:px-16 flex flex-col lg:flex-row justify-between gap-16">
+            <div class="flex-1 max-w-[645px] flex flex-col justify-start items-start">
+                <div class="pl-6 border-l-4 border-pink-500 mb-8">
+                    <h2 class="text-zinc-100 text-4xl font-medium tracking-tight">About Me</h2>
+                </div>
+                
+                <div class="text-zinc-400 text-base md:text-lg font-normal leading-7 space-y-6 text-left">
+                    <p>
+                        I am an IT student at Brawijaya University with a strong background in logical problem-solving from national informatics competitions. I always approach challenges through a structured lens to ensure technical efficiency.
+                    </p>
+                    <p>
+                        As an aspiring Product Manager, I thrive at bridging technology with user experience. I am passionate about transforming complex data into digital strategies and leading teams to build impactful products.
+                    </p>
+                </div>
+
+                <div class="mt-10 w-full">
+                    <h4 class="text-pink-500 text-xs font-semibold uppercase tracking-wider mb-4">Core Focus</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-4 text-zinc-100 text-base">
+                            <span class="text-pink-500 text-sm"><i class="fa-solid fa-square-poll-vertical"></i></span>
+                            <span>Product Lifecycle & Strategy</span>
+                        </li>
+                        <li class="flex items-center gap-4 text-zinc-100 text-base">
+                            <span class="text-pink-500 text-sm"><i class="fa-solid fa-layer-group"></i></span>
+                            <span>User-Centric UI/UX Design</span>
+                        </li>
+                        <li class="flex items-center gap-4 text-zinc-100 text-base">
+                            <span class="text-pink-500 text-sm"><i class="fa-solid fa-brain"></i></span>
+                            <span>Algorithmic Problem Solving</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- INTERACTIVE CAROUSEL CONTAINER -->
+            <div class="w-full lg:w-96 flex flex-col justify-start items-start">
+                <h4 class="text-pink-500 text-xs font-semibold uppercase tracking-wider mb-8 lg:mb-10">
+                    Activities & Moments
+                </h4>
+                
+                <div class="w-full flex flex-col items-center gap-8">
+                    <div class="relative w-full h-80 max-w-96 overflow-hidden bg-zinc-950 rounded-2xl border border-zinc-800 shadow-2xl">
+                        
+                        <!-- Slide 1 -->
+                        <div class="gallery-item absolute inset-0 w-full h-full opacity-100 z-10 flex flex-col">
+                            <img class="w-full h-full object-cover object-center" src="assets/moment1.jpeg.jpeg" alt="Moment 1" onerror="this.src='https://placehold.co/382x338'" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-transparent to-transparent p-4 flex flex-col justify-between">
+                                <span class="self-start px-3 py-1 bg-pink-500/20 border border-pink-500/40 rounded-full text-pink-500 text-[10px] font-semibold uppercase tracking-wider">Collab</span>
+                                <div class="text-zinc-100 text-sm font-medium">Collaborative creative meetings</div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="gallery-item absolute inset-0 w-full h-full opacity-0 z-0 flex flex-col">
+                            <img class="w-full h-full object-cover object-center" src="assets/moment2.jpeg.jpeg" alt="Moment 2" onerror="this.src='https://placehold.co/383x343'" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-transparent to-transparent p-4 flex flex-col justify-between">
+                                <span class="self-start px-3 py-1 bg-pink-500/20 border border-pink-500/40 rounded-full text-pink-500 text-[10px] font-semibold uppercase tracking-wider">Informatics</span>
+                                <div class="text-zinc-100 text-sm font-medium">Competition & Problem Solving Arena</div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="gallery-item absolute inset-0 w-full h-full opacity-0 z-0 flex flex-col">
+                            <img class="w-full h-full object-cover object-center" src="assets/moment3.jpeg.jpeg" alt="Moment 3" onerror="this.src='https://placehold.co/383x343'" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-transparent to-transparent p-4 flex flex-col justify-between">
+                                <span class="self-start px-3 py-1 bg-pink-500/20 border border-pink-500/40 rounded-full text-pink-500 text-[10px] font-semibold uppercase tracking-wider">Campus Life</span>
+                                <div class="text-zinc-100 text-sm font-medium">Brawijaya University daily routines</div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="gallery-item absolute inset-0 w-full h-full opacity-0 z-0 flex flex-col">
+                            <img class="w-full h-full object-cover object-center" src="assets/moment4.jpeg.jpeg" alt="Moment 4" onerror="this.src='https://placehold.co/377x340'" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-transparent to-transparent p-4 flex flex-col justify-between">
+                                <span class="self-start px-3 py-1 bg-pink-500/20 border border-pink-500/40 rounded-full text-pink-500 text-[10px] font-semibold uppercase tracking-wider">Team Building</span>
+                                <div class="text-zinc-100 text-sm font-medium">Synergy & brainstorming sessions</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Carousel Controls & Dots Indicator -->
+                    <div class="flex items-center gap-5">
+                        <button id="btn-prev" class="w-9 h-9 rounded-full border border-zinc-800 flex justify-center items-center text-zinc-500 hover:text-pink-500 hover:border-pink-500 transition-colors">
+                            <i class="fa-solid fa-chevron-left text-xs"></i>
+                        </button>
+                        <div class="flex items-center gap-2" id="dots-container">
+                            <div class="dot w-5 h-2 bg-pink-500 rounded-full transition-all duration-300"></div>
+                            <div class="dot w-2 h-2 bg-zinc-800 rounded-full transition-all duration-300"></div>
+                            <div class="dot w-2 h-2 bg-zinc-800 rounded-full transition-all duration-300"></div>
+                            <div class="dot w-2 h-2 bg-zinc-800 rounded-full transition-all duration-300"></div>
+                        </div>
+                        <button id="btn-next" class="w-9 h-9 rounded-full border border-zinc-800 flex justify-center items-center text-zinc-500 hover:text-pink-500 hover:border-pink-500 transition-colors">
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+        3. TECHNICAL ARSENAL (SKILLS SECTION)
+       ========================================================================= -->
+    <section id="skills" class="w-full py-32 bg-neutral-950">
+        <div class="max-w-7xl mx-auto w-full px-6 md:px-16 flex flex-col items-center">
+            <div class="flex flex-col items-center mb-16 text-center">
+                <h2 class="text-zinc-100 text-4xl font-medium mb-4 tracking-tight">Technical Arsenal</h2>
+                <div class="w-12 h-1 bg-pink-500"></div>
+            </div>
+
+            <div class="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div class="p-8 bg-zinc-900 rounded-2xl border border-zinc-800/60 flex flex-col justify-center items-center gap-4 text-center hover:border-pink-500/50 hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-7 h-7 text-zinc-400 text-xl flex items-center justify-center"><i class="fa-solid fa-pen-nib"></i></div>
+                    <div class="text-zinc-100 text-sm font-semibold tracking-tight">UI Design</div>
+                    <div class="text-zinc-500 text-xs mt-[-8px]">Figma Component</div>
+                </div>
+                <div class="p-8 bg-zinc-900 rounded-2xl border border-zinc-800/60 flex flex-col justify-center items-center gap-4 text-center hover:border-pink-500/50 hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-7 h-7 text-zinc-400 text-xl flex items-center justify-center"><i class="fa-solid fa-layer-group"></i></div>
+                    <div class="text-zinc-100 text-sm font-semibold tracking-tight">Jira</div>
+                    <div class="text-zinc-500 text-xs mt-[-8px]">Agile Management</div>
+                </div>
+                <div class="p-8 bg-zinc-900 rounded-2xl border border-zinc-800/60 flex flex-col justify-center items-center gap-4 text-center hover:border-pink-500/50 hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-7 h-7 text-zinc-400 text-xl flex items-center justify-center"><i class="fa-solid fa-code"></i></div>
+                    <div class="text-zinc-100 text-sm font-semibold tracking-tight">Tailwind CSS</div>
+                    <div class="text-zinc-500 text-xs mt-[-8px]">Utility Frontend</div>
+                </div>
+                <div class="p-8 bg-zinc-900 rounded-2xl border border-zinc-800/60 flex flex-col justify-center items-center gap-4 text-center hover:border-pink-500/50 hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-7 h-7 text-zinc-400 text-xl flex items-center justify-center"><i class="fa-solid fa-cubes"></i></div>
+                    <div class="text-zinc-100 text-sm font-semibold tracking-tight">TypeScript</div>
+                    <div class="text-zinc-500 text-xs mt-[-8px]">Typed Architecture</div>
+                </div>
+                <div class="p-8 bg-zinc-900 rounded-2xl border border-zinc-800/60 flex flex-col justify-center items-center gap-4 text-center hover:border-pink-500/50 hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-7 h-7 text-zinc-400 text-xl flex items-center justify-center"><i class="fa-brands fa-figma"></i></div>
+                    <div class="text-zinc-100 text-sm font-semibold tracking-tight">Figma</div>
+                    <div class="text-zinc-500 text-xs mt-[-8px]">System & Prototype</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+        4. PROFESSIONAL JOURNEY (TIMELINE EXP SECTION)
+       ========================================================================= -->
+    <section id="experiences" class="w-full py-24 bg-neutral-900">
+        <div class="max-w-7xl mx-auto w-full px-6 md:px-16 flex flex-col items-center">
+            <div class="text-center mb-16">
+                <h2 class="text-zinc-100 text-4xl font-medium tracking-tight">Professional Journey</h2>
+            </div>
+
+            <div class="w-full max-w-3xl flex flex-col justify-start items-start">
+                <div class="w-full pl-8 relative border-l-[1.60px] border-zinc-800 pb-12">
+                    <div class="w-4 h-4 absolute -left-[8.5px] top-1.5 bg-pink-500 rounded-full border-[1.60px] border-neutral-900 shadow-md shadow-pink-500/20"></div>
+                    <div class="flex flex-col items-start gap-1">
+                        <div class="text-pink-500 text-xs font-medium">Mar 2026 — Present</div>
+                        <h3 class="text-zinc-100 text-2xl font-medium pt-1">Product Manager</h3>
+                        <h4 class="text-zinc-400 text-sm font-semibold tracking-tight">Raion Community</h4>
+                        <p class="text-zinc-400 text-base font-normal leading-6 pt-3 max-w-[735px] text-left">
+                            Leading cross-functional teams (Designers & Developers) to build and ship innovative mobile and web applications, managing product roadmaps, requirements, and user-centric features.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="w-full pl-8 relative border-l-[1.60px] border-zinc-800 pb-12">
+                    <div class="w-4 h-4 absolute -left-[8.5px] top-1.5 bg-pink-500 rounded-full border-[1.60px] border-neutral-900"></div>
+                    <div class="flex flex-col items-start gap-1">
+                        <div class="text-pink-500 text-xs font-medium">Sept 2025 — Jan 2026</div>
+                        <h3 class="text-zinc-100 text-2xl font-medium pt-1">Junior Staff of Student Advocacy and Welfare Ministry</h3>
+                        <h4 class="text-zinc-400 text-sm font-semibold tracking-tight">Student Government Executive (SGE) FILKOM UB</h4>
+                        <p class="text-zinc-400 text-base font-normal leading-6 pt-3 max-w-[735px] text-left">
+                            Awarded as Best Staff for managing student welfare programs, driving internal coordination, and structuring reporting data.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="w-full pl-8 relative border-l-[1.60px] border-zinc-800 pb-12">
+                    <div class="w-4 h-4 absolute -left-[8.5px] top-1.5 bg-pink-500 rounded-full border-[1.60px] border-neutral-900"></div>
+                    <div class="flex flex-col items-start gap-1">
+                        <div class="text-pink-500 text-xs font-medium">May 2025 — Jul 2025</div>
+                        <h3 class="text-zinc-100 text-2xl font-medium pt-1">Finance Admin Intern</h3>
+                        <h4 class="text-zinc-400 text-sm font-semibold tracking-tight">Transformer Center Batu</h4>
+                        <p class="text-zinc-400 text-base font-normal leading-6 pt-3 max-w-[735px] text-left">
+                            Processed and validated 200+ monthly financial transactions using Excel and Google Sheets to ensure data consistency.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="w-full pl-8 relative border-l-[1.60px] border-zinc-800">
+                    <div class="w-4 h-4 absolute -left-[8.5px] top-1.5 bg-pink-500 rounded-full border-[1.60px] border-neutral-900"></div>
+                    <div class="flex flex-col items-start gap-1">
+                        <div class="text-pink-500 text-xs font-medium">Apr 2023 — Apr 2025</div>
+                        <h3 class="text-zinc-100 text-2xl font-medium pt-1">Head of School Cooperative</h3>
+                        <h4 class="text-zinc-400 text-sm font-semibold tracking-tight">SMA Negeri 1 Batu</h4>
+                        <p class="text-zinc-400 text-base font-normal leading-6 pt-3 max-w-[735px] text-left">
+                            Supervised financial reporting, coordinated a team of 10 members, and improved overall workflow efficiency.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+        5. FEATURED WORK (PROJECTS DISPLAY)
+       ========================================================================= -->
+    <section id="projects" class="w-full py-24 bg-neutral-950">
+        <div class="max-w-7xl mx-auto w-full px-6 md:px-16 flex flex-col items-center">
+            <div class="flex flex-col items-center mb-16 text-center">
+                <h2 class="text-zinc-100 text-4xl font-medium mb-4 tracking-tight">Featured Work</h2>
+                <div class="w-12 h-1 bg-pink-500"></div>
+            </div>
+
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project Card 1: BloomU -->
+                <div class="w-full bg-zinc-900 rounded-2xl border border-zinc-800/80 overflow-hidden hover:border-pink-500/30 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-64 overflow-hidden bg-neutral-900 flex justify-center items-center">
+                            <img class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500" src="assets/project-bloomu.png.png" alt="BloomU Mobile App Showcase" onerror="this.src='https://placehold.co/558x314'" />
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 bg-pink-500/10 text-pink-500 rounded-full">Product Manager</span>
+                            </div>
+                            <h3 class="text-zinc-100 text-xl font-bold">BloomU Mobile App</h3>
+                            <p class="text-zinc-400 text-sm leading-6">A mobile-based mental health tracker app designed to help users monitor and manage emotional well-being.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex justify-between items-center">
+                        <a href="https://drive.google.com/drive/folders/1gCTHnDwQbLAOx2XXCAaffG0Dnq6c7_6g?usp=sharing" target="_blank" class="text-xs font-semibold text-pink-500 hover:text-pink-400 flex items-center gap-1.5 transition-colors">
+                            Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                        <a href="https://github.com/alyadrea-cmd" target="_blank" class="text-zinc-400 hover:text-zinc-100 transition-colors text-lg">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2: Lost & Found FILKOM -->
+                <div class="w-full bg-zinc-900 rounded-2xl border border-zinc-800/80 overflow-hidden hover:border-pink-500/30 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-64 overflow-hidden bg-neutral-900 flex justify-center items-center">
+                            <img class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500" src="assets/project-lnf.png.png" alt="Lost and Found Showcase" onerror="this.src='https://placehold.co/558x314'" />
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 bg-pink-500/10 text-pink-500 rounded-full">Product Manager</span>
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 bg-pink-500/10 text-pink-500 rounded-full">UI/UX</span>
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 bg-pink-500/10 text-pink-500 rounded-full">Frontend</span>
+                            </div>
+                            <h3 class="text-zinc-100 text-xl font-bold">L&F FILKOM Web Platform</h3>
+                            <p class="text-zinc-400 text-sm leading-6">A dedicated lost-and-found web application for Faculty of Computer Science, Brawijaya University.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex justify-between items-center">
+                        <a href="https://drive.google.com/drive/folders/1gCTHnDwQbLAOx2XXCAaffG0Dnq6c7_6g?usp=sharing" target="_blank" class="text-xs font-semibold text-pink-500 hover:text-pink-400 flex items-center gap-1.5 transition-colors">
+                            Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                        <a href="https://github.com/alyadrea-cmd" target="_blank" class="text-zinc-400 hover:text-zinc-100 transition-colors text-lg">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3: MagCycle Concept -->
+                <div class="w-full bg-zinc-900 rounded-2xl border border-zinc-800/80 overflow-hidden hover:border-pink-500/30 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-64 overflow-hidden bg-neutral-900 flex justify-center items-center">
+                            <img class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500" src="assets/project-magcycle.png.png" alt="MagCycle Concept Showcase" onerror="this.src='https://placehold.co/558x314'" />
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 bg-pink-500/10 text-pink-500 rounded-full">Product Manager</span>
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 bg-pink-500/10 text-pink-500 rounded-full">Sustainable Tech</span>
+                            </div>
+                            <h3 class="text-zinc-100 text-xl font-bold">MagCycle App Concept</h3>
+                            <p class="text-zinc-400 text-sm leading-6">A sustainable-tech concept for waste management. Conducted user research, defined MVP scope, and created product specifications.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex justify-between items-center">
+                        <a href="https://drive.google.com/drive/folders/1gCTHnDwQbLAOx2XXCAaffG0Dnq6c7_6g?usp=sharing" target="_blank" class="text-xs font-semibold text-pink-500 hover:text-pink-400 flex items-center gap-1.5 transition-colors">
+                            Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                        <a href="https://github.com/alyadrea-cmd" target="_blank" class="text-zinc-400 hover:text-zinc-100 transition-colors text-lg">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 4: Personal Portfolio -->
+                <div class="w-full bg-zinc-900 rounded-2xl border border-zinc-800/80 overflow-hidden hover:border-pink-500/30 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-64 overflow-hidden bg-neutral-900 flex justify-center items-center">
+                            <img class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500" src="assets/project-porto.png.png" alt="Portfolio Site Showcase" onerror="this.src='https://placehold.co/558x314'" />
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 bg-pink-500/10 text-pink-500 rounded-full">UI/UX Design</span>
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 bg-pink-500/10 text-pink-500 rounded-full">Frontend Dev</span>
+                            </div>
+                            <h3 class="text-zinc-100 text-xl font-bold">Personal Portfolio Website</h3>
+                            <p class="text-zinc-400 text-sm leading-6">A single-page portfolio built with a strict matte dark theme and elegant rose accents. Designed to demonstrate clean visual hierarchy and full desktop-to-mobile responsiveness.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex justify-between items-center">
+                        <a href="https://drive.google.com/drive/folders/1gCTHnDwQbLAOx2XXCAaffG0Dnq6c7_6g?usp=sharing" target="_blank" class="text-xs font-semibold text-pink-500 hover:text-pink-400 flex items-center gap-1.5 transition-colors">
+                            Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                        <a href="https://github.com/alyadrea-cmd" target="_blank" class="text-zinc-400 hover:text-zinc-100 transition-colors text-lg">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+        6. GET IN TOUCH (WITH ADVANCED EMAIL FALLBACK)
+       ========================================================================= -->
+    <section id="contact" class="w-full py-28 bg-neutral-900 border-t border-zinc-800/40">
+        <div class="max-w-4xl mx-auto px-6 text-center flex flex-col items-center space-y-8">
+            <div class="text-pink-500 text-xs font-semibold uppercase tracking-wider">Get In Touch</div>
+            <h2 class="text-zinc-100 text-4xl md:text-5xl font-bold tracking-tight max-w-2xl leading-tight">
+                Let's Build Something Extraordinary Together
+            </h2>
+            <p class="text-zinc-400 text-base max-w-lg">
+                Have an exciting project in mind, want to collaborate, or talk about Product Management strategy? Send a message directly!
+            </p>
+            
+            <div class="pt-4 flex flex-wrap justify-center gap-4 w-full max-w-md">
+                <!-- INTERACTIVE EMAIL ACTION WITH FALLBACK -->
+                <button onclick="handleEmailRedirect()" class="flex-1 inline-flex justify-center items-center gap-3 px-6 py-4 bg-pink-500 text-neutral-900 font-bold text-sm rounded-full hover:bg-pink-600 transition-all shadow-lg shadow-pink-500/10 cursor-pointer">
+                    <i class="fa-solid fa-envelope text-base"></i> Email Me
+                </button>
+                <!-- WHATSAPP LINK -->
+                <a href="https://wa.me/6282131083182" target="_blank" class="flex-1 inline-flex justify-center items-center gap-3 px-6 py-4 bg-zinc-800 text-zinc-100 border border-zinc-700 font-semibold text-sm rounded-full hover:bg-zinc-700 transition-all">
+                    <i class="fa-brands fa-whatsapp text-emerald-500 text-base"></i> WhatsApp Message
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+        7. FOOTER
+       ========================================================================= -->
+    <footer class="w-full py-12 bg-neutral-950 border-t border-zinc-900">
+        <div class="max-w-7xl mx-auto px-6 md:px-16 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="text-zinc-500 text-xs font-normal">
+                &copy; 2026 Alya Dhamierea. All rights reserved.
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <a href="https://github.com/alyadrea-cmd" target="_blank" class="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800/80 flex justify-center items-center text-zinc-400 hover:text-pink-500 hover:border-pink-500 transition-all duration-300">
+                    <i class="fa-brands fa-github text-lg"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/alyadrea/" target="_blank" class="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800/80 flex justify-center items-center text-zinc-400 hover:text-pink-500 hover:border-pink-500 transition-all duration-300">
+                    <i class="fa-brands fa-linkedin-in text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================================================================
+        8. INTERACTIVE JAVASCRIPT LOGIC
+       ========================================================================= -->
+    <script>
+        // 1. Mobile Menu Toggling Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('open');
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // 2. DYNAMIC NAVBAR LINE INDICATOR
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('#desktop-nav .nav-link');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-50% 0px -50% 0px',
+            threshold: 0
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeId = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        if (link.getAttribute('href') === `#${activeId}`) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // 3. CAROUSEL GALLERY LOGIC (ABOUT ME)
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.gallery-item');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        function updateGallery(targetIndex) {
+            // Reset index bounds
+            if (targetIndex >= totalSlides) currentSlide = 0;
+            else if (targetIndex < 0) currentSlide = totalSlides - 1;
+            else currentSlide = targetIndex;
+
+            // Update Image States
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.style.opacity = '1';
+                    slide.style.zIndex = '10';
+                } else {
+                    slide.style.opacity = '0';
+                    slide.style.zIndex = '0';
+                }
+            });
+
+            // Update Dots Style
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.className = 'dot w-5 h-2 bg-pink-500 rounded-full transition-all duration-300';
+                } else {
+                    dot.className = 'dot w-2 h-2 bg-zinc-800 rounded-full transition-all duration-300';
+                }
+            });
+        }
+
+        document.getElementById('btn-next').addEventListener('click', () => {
+            updateGallery(currentSlide + 1);
+        });
+
+        document.getElementById('btn-prev').addEventListener('click', () => {
+            updateGallery(currentSlide - 1);
+        });
+
+        // 4. ANTI-FAIL EMAIL REDIRECT FUNCTION
+        function handleEmailRedirect() {
+            const email = 'alyaonduty@gmail.com';
+            const mailtoUrl = `mailto:${email}`;
+            
+            // Catat waktu mulai mencoba membuka mailto
+            const start = Date.now();
+            
+            // Jalankan standard mailto
+            window.location.href = mailtoUrl;
+            
+            // Cek setelah 1 detik, kalau window/tab tidak blur (artinya aplikasi lokal gagal kebuka)
+            // Maka langsung dipaksa redirect buka Gmail Web tab baru.
+            setTimeout(() => {
+                if (Date.now() - start < 1500) {
+                    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`, '_blank');
+                }
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>
